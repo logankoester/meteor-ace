@@ -38,3 +38,35 @@ Declare where you want the editor placed...
 </style>
 ```
 And watch and enjoy your web page transform into a full featured IDE with themes, syntax highlighting, and live syntax checking/linting! Plus much more...
+
+## Caveats
+Currently does not work with reactive templates since the Ace editor javascript rewrites the <div> element.  Rather than using handlebars (or another template)
+```
+<div id="editor">
+  {{ editorContents }}
+</div>
+```
+you currently have to use the Ace API to write and read from the editor.  Observing a Mongo query works great for this.
+```
+var query = File.find({_id : Session.get("file")});
+
+handle = query.observe({		
+  changed : function(newDoc, oldIndex, oldDoc) {
+	  if(editor !== undefined){
+ 	    editor.setValue(newDoc.contents);
+ 	  }
+	}
+});
+```
+And to push the changes to all clients by writing to the database
+```
+editor.getSession().on('change', function(e) {
+    // update the File collection
+    File.update({_id: Session.get("file")}, 
+      { $set : 
+        { 
+          contents : editor.getValue()
+        }
+      });
+});
+```
