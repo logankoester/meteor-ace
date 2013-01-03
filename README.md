@@ -40,7 +40,9 @@ Declare where you want the editor placed...
 And watch and enjoy your web page transform into a full featured IDE with themes, syntax highlighting, and live syntax checking/linting! Plus much more...
 
 ## Caveats
-Currently does not work with reactive templates since the Ace editor javascript rewrites the <div> element.  Rather than using handlebars (or another template)
+
+Currently does not work with reactive templates since the Ace editor javascript rewrites the <div> element.  
+Rather than using handlebars (or another template):
 ```
 <div id="editor">
   {{ editorContents }}
