@@ -3,6 +3,10 @@
 Ace editor  repackaged for Meteor. [http://ace.ajax.org/](http://ace.ajax.org/)
 
 ## Quickstart
+Add this package to your project
+```
+mrt add ace
+```
 
 Declare a _div_ with an #id.  Fill it with sweet code. 
 
