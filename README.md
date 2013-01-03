@@ -3,7 +3,7 @@
 Ace editor  repackaged for Meteor. [http://ace.ajax.org/](http://ace.ajax.org/)
 
 ## Quickstart
-_see [git remote add origin https://github.com/Jay-Oh-eN/mondocode.git](git remote add origin https://github.com/Jay-Oh-eN/mondocode.git) for an example of this in the wild._
+_see [http://github.com/Jay-Oh-eN/mondocode](http://github.com/Jay-Oh-eN/mondocode) for an example of this in the wild._
 
 Add this package to your project
 ```
