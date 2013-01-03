@@ -3,6 +3,8 @@
 Ace editor  repackaged for Meteor. [http://ace.ajax.org/](http://ace.ajax.org/)
 
 ## Quickstart
+_see [git remote add origin https://github.com/Jay-Oh-eN/mondocode.git](git remote add origin https://github.com/Jay-Oh-eN/mondocode.git) for an example of this in the wild._
+
 Add this package to your project
 ```
 mrt add ace
@@ -41,14 +43,16 @@ And watch and enjoy your web page transform into a full featured IDE with themes
 
 ## Caveats
 
-Currently does not work with reactive templates since the Ace editor javascript rewrites the <div> element.  
+Currently does not work with reactive templates since the Ace editor javascript rewrites the "<div>" element.  
 Rather than using handlebars (or another template):
 ```
 <div id="editor">
   {{ editorContents }}
 </div>
 ```
-you currently have to use the Ace API to write and read from the editor.  Observing a Mongo query works great for this.
+you currently have to use the Ace API to write and read from the editor.  
+
+Observing a Mongo query works great for listening to changes:
 ```
 var query = File.find({_id : Session.get("file")});
 
@@ -60,7 +64,7 @@ handle = query.observe({
 	}
 });
 ```
-And to push the changes to all clients by writing to the database
+And to push the writes to the editor to all clients, update to the database:
 ```
 editor.getSession().on('change', function(e) {
     // update the File collection
@@ -72,3 +76,5 @@ editor.getSession().on('change', function(e) {
       });
 });
 ```
+
+And now you have a collaborative code editor!
