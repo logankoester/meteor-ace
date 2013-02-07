@@ -43,7 +43,7 @@ And watch and enjoy your web page transform into a full featured IDE with themes
 
 ## Caveats
 
-Currently does not work with reactive templates since the Ace editor javascript rewrites the "<div>" element.  
+Currently does not work with reactive templates since the Ace editor javascript rewrites the "`<div>`" element.  
 Rather than using handlebars (or another template):
 ```
 <div id="editor">
